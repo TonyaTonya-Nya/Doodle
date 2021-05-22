@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class GamePlayer : MonoBehaviour
 {
     public int score = 0;
     float speed = 3f;

@@ -21,7 +21,7 @@ public class Coin : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
-            collision.gameObject.GetComponent<Player>().score++;
+            collision.gameObject.GetComponent<GamePlayer>().score++;
             totalCoinCount--;
             Debug.Log(totalCoinCount);
             if (totalCoinCount == 0)
