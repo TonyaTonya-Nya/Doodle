@@ -19,7 +19,7 @@ public class CreateRoom : MonoBehaviourPunCallbacks
         }
 
         RoomOptions roomSetting = new RoomOptions();
-        roomSetting.MaxPlayers = 4;
+        roomSetting.MaxPlayers = 2;
         PhotonNetwork.CreateRoom(_roomName.text, roomSetting, TypedLobby.Default);
     }
     public override void OnCreatedRoom()

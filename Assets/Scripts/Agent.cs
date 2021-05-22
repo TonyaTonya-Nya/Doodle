@@ -17,9 +17,14 @@ public class Agent : MonoBehaviour
         agent.updateUpAxis = false;
     }
 
+    public void SetTarget(Transform newTarget)
+    {
+        target = newTarget;
+    }
     // Update is called once per frame
     void Update()
     {
+        if (target != null)
         agent.SetDestination(target.position);   
     }
     private void OnCollisionEnter2D(Collision2D collision)
