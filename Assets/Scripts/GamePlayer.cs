@@ -11,7 +11,7 @@ public class GamePlayer : MonoBehaviour
     public static int score = 0;
     float speed = 3f;
     private PhotonView photonView;
-    
+    public VariableJoystick variableJoystick;
 
     public AudioClip[] audioArr;
     void Start()
@@ -28,20 +28,20 @@ public class GamePlayer : MonoBehaviour
             return;
         }
 
-        if (Input.GetKey(KeyCode.RightArrow))
+        if (Input.GetKey(KeyCode.RightArrow) || variableJoystick.Horizontal > 0)
         {
             gameObject.transform.position += new Vector3(speed * Time.deltaTime, 0, 0);
         }
 
-        if (Input.GetKey(KeyCode.LeftArrow))
+        if (Input.GetKey(KeyCode.LeftArrow) || variableJoystick.Horizontal < 0)
         {
             gameObject.transform.position += new Vector3(-speed * Time.deltaTime, 0, 0);
         }
-        if (Input.GetKey(KeyCode.UpArrow))
+        if (Input.GetKey(KeyCode.UpArrow) || variableJoystick.Vertical > 0)
         {
             gameObject.transform.position += new Vector3(0, speed * Time.deltaTime, 0);
         }
-        if (Input.GetKey(KeyCode.DownArrow))
+        if (Input.GetKey(KeyCode.DownArrow) || variableJoystick.Vertical < 0)
         {
             gameObject.transform.position += new Vector3(0, -speed * Time.deltaTime, 0);
         }

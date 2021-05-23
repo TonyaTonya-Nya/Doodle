@@ -12,6 +12,7 @@ public class GameManage : MonoBehaviour
     public GameObject player1;
     public GameObject player2;
     public GameObject botRoot;
+    public VariableJoystick variableJoystick;
     public Text text;
     // Start is called before the first frame update
     void Start()
@@ -26,6 +27,7 @@ public class GameManage : MonoBehaviour
             pos = p2position;
         }
         GameObject player = PhotonNetwork.Instantiate(this.playerPrefab.name, pos, Quaternion.identity);
+        player.GetComponent<GamePlayer>().variableJoystick = variableJoystick;
         if (PhotonNetwork.IsMasterClient)
         {
             player1 = player;
