@@ -27,6 +27,7 @@ public class Agent : MonoBehaviour
         if (target != null)
         agent.SetDestination(target.position);   
     }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.collider.tag == "Player")
