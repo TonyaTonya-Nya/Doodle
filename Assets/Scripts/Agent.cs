@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 
 public class Agent : MonoBehaviour
 {
@@ -32,7 +33,7 @@ public class Agent : MonoBehaviour
     {
         if (collision.collider.tag == "Player")
         {
-            Debug.Log("GameOver");
+            SceneManager.LoadScene(3);
         }
     }
 }

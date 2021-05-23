@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Coin : MonoBehaviour
 {
-    static int totalCoinCount=40;
+    static int totalCoinCount=210;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,11 +17,14 @@ public class Coin : MonoBehaviour
         
     }
 
+
+   
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Player")
         {
-            collision.gameObject.GetComponent<GamePlayer>().score++;
+            GamePlayer.score++;
+            collision.gameObject.GetComponent<GamePlayer>().playCoinAudio();
             totalCoinCount--;
             Debug.Log(totalCoinCount);
             if (totalCoinCount == 0)

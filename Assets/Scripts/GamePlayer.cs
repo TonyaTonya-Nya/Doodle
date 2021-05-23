@@ -3,11 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
+using UnityEngine.SceneManagement;
+
 public class GamePlayer : MonoBehaviour
 {
-    public int score = 0;
+    public static int goal = 210;
+    public static int score = 0;
     float speed = 3f;
     private PhotonView photonView;
+    
+
+    public AudioClip[] audioArr;
     void Start()
     {
         photonView = GetComponent<PhotonView>();
@@ -39,5 +45,20 @@ public class GamePlayer : MonoBehaviour
         {
             gameObject.transform.position += new Vector3(0, -speed * Time.deltaTime, 0);
         }
+
+       if(score== goal)
+        {
+            SceneManager.LoadScene(2);
+        }
     }
+
+  
+
+    public void playCoinAudio()
+    {
+        gameObject.GetComponent<AudioSource>().clip = audioArr[0];
+        gameObject.GetComponent<AudioSource>().Play();
+    }
+ 
+
 }

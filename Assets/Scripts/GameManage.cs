@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
+using UnityEngine.UI;
 public class GameManage : MonoBehaviour
 {
     public GameObject playerPrefab;
@@ -11,6 +12,7 @@ public class GameManage : MonoBehaviour
     public GameObject player1;
     public GameObject player2;
     public GameObject botRoot;
+    public Text text;
     // Start is called before the first frame update
     void Start()
     {
@@ -40,11 +42,12 @@ public class GameManage : MonoBehaviour
             player.name = "player2";
         }
 
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        text.text = (GamePlayer.goal - GamePlayer.score).ToString();
     }
 }
